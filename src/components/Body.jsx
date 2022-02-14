@@ -37,6 +37,9 @@ function Body(){
     return(
         <div>
             <Nasa url={url} title={title} media_type={media_type} explanation={explanation}/>
+            <div style={{textAlign: "center"}}>
+            <h3>I love you Samanta 🥺🥺🥺</h3>
+            </div>
         </div>
     );
   }
