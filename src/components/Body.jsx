@@ -7,7 +7,7 @@ function Body(){
     const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(()=>{
-    fetch("/apod")
+    fetch("https://beyond-earth-server.herokuapp.com/apod")
       .then((res) => res.json())
       .then((result) => {
         setData(result);
