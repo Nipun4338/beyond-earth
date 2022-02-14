@@ -1,0 +1,47 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+    font-size:medium;
+    font-weight: bolder;
+  }
+
+
+body{
+    height: 100%;
+    background-color: #040607;
+}
+
+.navbar,
+.navbar-default {
+    background-image: linear-gradient(to bottom,#0b1116 0,#05080a 100%) !important; /* override background image gradient w/ flat color */
+}
+.dot {
+    height: 25px;
+    width: 25px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  
+footer {
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;
+}
+    
+footer p {
+    color: white;
+}
+
+h1,h2,h3,h4,h5,h6,p{
+    color: #fff;
+}
+
+#row{
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
