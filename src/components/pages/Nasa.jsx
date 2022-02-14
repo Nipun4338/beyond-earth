@@ -15,10 +15,6 @@ function Nasa(props){
         setMouse(true);
     }
 
-    function falseChangeMouse(){
-        setMouse(false);
-    }
-
     return (
     <div>
     <h3 style={{textAlign: "center", marginTop: "50px"}}>Nasa Astronomy Picture of the Day</h3>
