@@ -5,6 +5,8 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import MyVerticallyCenteredModal from '../elements/CustomModal';
+import NasaEvents from "./NasaEvents";
+import { Image } from "react-bootstrap";
 
 
 function Nasa(props){
@@ -16,8 +18,9 @@ function Nasa(props){
     }
 
     return (
-    <div>
-    <h3 style={{textAlign: "center", marginTop: "50px"}}>Nasa Astronomy Picture of the Day</h3>
+    <div style={{marginTop: "50px"}}>
+    <h2 style={{fontWeight: "bolder"}}>NASA</h2>
+    <h3 style={{textAlign: "center"}}>Nasa Astronomy Picture of the Day</h3>
     <Card onMouseOver={changeMouse} onClick={() => setModalShow(true)} sx={{ maxWidth: 600 }} className="rounded mx-auto d-block" style={{backgroundColor: "#0c0e10", color: "white"}}>
       <CardActionArea>
         <CardMedia
@@ -48,7 +51,7 @@ function Nasa(props){
       />
 
 
-      {/*<NasaEvents />*/}
+      <NasaEvents />
     </div>
     );
 }

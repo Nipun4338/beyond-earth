@@ -10,7 +10,7 @@ function Header(){
     }
     return (
         <header>
-            <Navbar style={{position: "sticky"}} bg="dark" expand="md" variant="dark">
+            <Navbar bg="dark" expand="md" variant="dark" fixed="top">
             <Container fluid>
             <Navbar.Brand href="#home" onMouseOver={countChange} style={{color: "white"}}>
                 {' '}{count ? (
@@ -22,39 +22,16 @@ function Header(){
                     "Beyond Earth "
                 )}
             </Navbar.Brand>
-                <Navbar.Toggle aria-controls="navbarScroll" />
-                <Navbar.Collapse id="navbarScroll">
-                <Nav
-                    className="me-auto my-2 my-lg-0"
-                    style={{ maxHeight: '100px' }}
-                    navbarScroll
-                >
-                    <Nav.Link href="#action1">Home</Nav.Link>
-                    <Nav.Link href="#action2">Nasa</Nav.Link>
-                    <Nav.Link href="#action3">Rocket</Nav.Link>
-                    <Nav.Link href="#action4">APIs</Nav.Link>
-                    <NavDropdown title="Link" id="navbarScrollingDropdown">
-                    <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                    <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action5">
-                        Something else here
-                    </NavDropdown.Item>
-                    </NavDropdown>
-                    <Nav.Link href="#" disabled>
-                    Link
-                    </Nav.Link>
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+            <Navbar.Collapse id="responsive-navbar-nav">
+                <Nav className="me-auto">
                 </Nav>
-                <Form className="d-flex">
-                    <FormControl
-                    type="search"
-                    placeholder="Search"
-                    className="me-2"
-                    aria-label="Search"
-                    />
-                    <Button variant="outline-success">Search</Button>
-                </Form>
-                </Navbar.Collapse>
+                <Nav>
+                <Nav.Link href="#nasa">Nasa</Nav.Link>
+                <Nav.Link href="#rocket">Rocket</Nav.Link>
+                <Nav.Link href="#api">APIs</Nav.Link>
+                </Nav>
+            </Navbar.Collapse>
             </Container>
             </Navbar>
         </header>

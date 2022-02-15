@@ -1,4 +1,4 @@
-/*import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import ButtonGroupCustom from '../elements/ButtonGroupCustom';
 import event from "../event";
 import NasaCard from "./NasaCard";
@@ -37,7 +37,7 @@ function NasaEvents(){
       }
 
       useEffect(()=>{
-        fetch("/eonet_events")
+        fetch("https://beyond-earth-server.herokuapp.com/eonet_events")
           .then((res) => res.json())
           .then((result) => {
             //console.log(result);
@@ -65,8 +65,8 @@ function NasaEvents(){
         return <div>Loading...</div>;
       } else 
       {
-          /*console.log(array);
-          return "Ok";*/
+          console.log(array);
+          return "Ok";
         /*return (
             <div>
                 <h3 style={{textAlign: "center", marginTop: "50px"}}>Nasa EONET Events</h3>
@@ -79,8 +79,8 @@ function NasaEvents(){
                     }) : "Loading..."
                 }
             </div>
-        );
+        );*/
     }
 }
 
-export default NasaEvents;*/
+export default NasaEvents;
