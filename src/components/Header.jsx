@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import Typist from "react-typist";
-import { Navbar, Container, Nav, NavDropdown, Form, FormControl, Button } from "react-bootstrap";
+import { Navbar, Container, Nav} from "react-bootstrap";
 
 function Header(){
     const [count, setCount]=useState(1);

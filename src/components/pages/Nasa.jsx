@@ -6,7 +6,6 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import MyVerticallyCenteredModal from '../elements/CustomModal';
 import NasaEvents from "./NasaEvents";
-import { Image } from "react-bootstrap";
 
 
 function Nasa(props){

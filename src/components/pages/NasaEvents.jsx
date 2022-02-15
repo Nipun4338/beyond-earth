@@ -1,7 +1,4 @@
 import React, { useState, useEffect } from "react";
-import ButtonGroupCustom from '../elements/ButtonGroupCustom';
-import event from "../event";
-import NasaCard from "./NasaCard";
 
 const radios = [
     { name: 'Drought', value: '1' },
@@ -65,9 +62,7 @@ function NasaEvents(){
         return <div>Loading...</div>;
       } else 
       {
-          console.log(array);
-          return "Ok";
-        /*return (
+        return (
             <div>
                 <h3 style={{textAlign: "center", marginTop: "50px"}}>Nasa EONET Events</h3>
                 <ButtonGroupCustom radios={radios} getButtonValue={getButtonValue}/>
@@ -79,7 +74,7 @@ function NasaEvents(){
                     }) : "Loading..."
                 }
             </div>
-        );*/
+        );
     }
 }
 
