@@ -27,7 +27,7 @@ function Planet(){
     function getButtonValue(name){
         setTempArray((prevValue)=>{
             return array.filter((array)=>{
-                const {englishName: englishName, isPlanet: isPlanet}=array;
+                const {englishName, isPlanet}=array;
                 return name==='All' ? isPlanet===true : englishName===name;
             });
         });

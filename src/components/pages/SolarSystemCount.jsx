@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from "react";
-import ButtonGroupCustom from '../elements/ButtonGroupCustom';
-import known from "../sources/known";
 import SolarSystemCountCard from "./SolarSystemCountCard";
 
 
 function SolarSystemCount(){
-    const [array, setArray]=useState();
     const [tempArray, setTempArray]=useState();
     const [loaded, setLoaded]=useState(null);
     const [error, setError] = useState(false);
@@ -17,7 +14,6 @@ function SolarSystemCount(){
           .then((result) => {
             setLoaded(false);
             //console.log(result);
-            setArray(result.knowncount);
             setTempArray(result.knowncount);
             setIsLoaded(true);
             setLoaded(true);

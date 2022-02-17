@@ -2,18 +2,14 @@ import React, { useState} from "react";
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
-import { styled } from '@mui/material/styles';
 import { Col, Row } from "react-bootstrap";
-import { Style } from "@material-ui/icons";
-import Planet from "./Planets";
 import { useNavigate } from "react-router-dom";
 
 
 function SolarSystemCountCard(props){
     const navigate = useNavigate();
     const [isMouse, setIsMouse]=useState(false);
-    var {id: id, knownCount: knownCount, updateDate: updateDate }=props.prop;
+    var {id, knownCount, updateDate }=props.prop;
     if(id==='planet')
     {
         id='Planet';

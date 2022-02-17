@@ -2,7 +2,7 @@ import React, { useState} from "react";
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-import { CardActionArea, Link } from '@mui/material';
+import { CardActionArea } from '@mui/material';
 import CardActions from '@mui/material/CardActions';
 import Collapse from '@mui/material/Collapse';
 import IconButton from '@mui/material/IconButton';
@@ -23,9 +23,9 @@ const ExpandMore = styled((props) => {
   }));
 
 function PlanetCard(props){
-    const {id:id, name: name, englishName: englishName, bodyType: bodyType, discoveredBy:discoveredBy, 
-        discoveryDate:discoveryDate, gravity:gravity, escape:escape, meanRadius:meanRadius, avgTemp:avgTemp,
-    mass:{massValue:massValue, massExponent}, vol: {volValue:volValue, volExponent}}=props.prop;
+    const { englishName, bodyType, discoveredBy, 
+        discoveryDate, gravity, escape, meanRadius, avgTemp,
+    mass:{massValue, massExponent}, vol: {volValue, volExponent}}=props.prop;
     const [expanded, setExpanded] = useState(false);
     const [isMouse, setIsMouse]=useState(false);
     /*const sourceArray=useState(eonet.sources);
