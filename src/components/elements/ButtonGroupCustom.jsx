@@ -14,7 +14,8 @@ function ButtonGroupCustom(propsEarth) {
 
   useEffect(()=>{
     sendName(radioName);
-  },[]);
+  },[radioName]);
+  
 
   return (
       <ButtonGroup size='sm' style={{display: 'flex', justifyContent: 'flex-end'}} vertical={isMobile ? false : true}>

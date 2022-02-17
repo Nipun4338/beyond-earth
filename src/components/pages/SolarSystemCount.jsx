@@ -13,7 +13,6 @@ function SolarSystemCount(){
           .then((res) => res.json())
           .then((result) => {
             setLoaded(false);
-            //console.log(result);
             setTempArray(result.knowncount);
             setIsLoaded(true);
             setLoaded(true);
