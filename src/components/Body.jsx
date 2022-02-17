@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Nasa from "./pages/Nasa";
 import CircularProgressWithLabel from "./elements/Loading";
+import SolarSystemCount from "./pages/SolarSystemCount";
 
 function Body(){
     const [error, setError] = useState(null);
@@ -41,7 +42,12 @@ function Body(){
       const {media_type, title, url, explanation}=data;
     return(
         <div>
-            {isLoaded ? <Nasa url={url} title={title} media_type={media_type} explanation={explanation}/> : 
+            {isLoaded ? 
+            <div>
+            <Nasa url={url} title={title} media_type={media_type} explanation={explanation}/> 
+            <SolarSystemCount />
+            </div>
+            : 
             <CircularProgressWithLabel style={{
         position: 'absolute', left: '50%', top: '50%',
         transform: 'translate(-50%, -50%)'

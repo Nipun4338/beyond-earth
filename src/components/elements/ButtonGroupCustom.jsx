@@ -3,13 +3,12 @@ import { useMediaQuery } from "@mui/material";
 import { ButtonGroup, ToggleButton } from "react-bootstrap";
 
 
-function ButtonGroupCustom(props) {
-  const [checked, setChecked] = useState(false);
+function ButtonGroupCustom(propsEarth) {
   const [radioName, setRadioName] = useState('All');
   const isMobile = useMediaQuery('(min-width:990px)');
 
   function sendName(value){
-    props.getButtonValue(value);
+    propsEarth.getButtonValue(value);
     setRadioName(value);
   }
 
@@ -20,7 +19,7 @@ function ButtonGroupCustom(props) {
   return (
       <ButtonGroup size='sm' style={{display: 'flex', justifyContent: 'flex-end'}} vertical={isMobile ? false : true}>
       {
-      props.radios.map((property, index)=>{
+      propsEarth.radios.map((property, index)=>{
         {
           return (
             <ToggleButton

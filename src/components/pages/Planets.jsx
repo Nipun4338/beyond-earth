@@ -1,49 +1,50 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { useState, useEffect } from "react";
 import ButtonGroupCustom from '../elements/ButtonGroupCustom';
-import event from "../event";
-import NasaCard from "./NasaCard";
+import PlanetCard from "./PlanetCard";
+import CircularProgressWithLabel from "../elements/Loading";
+
 
 const radios = [
-    { name: 'Drought', value: '1' },
-    { name: 'Dust and Haze', value: '2' },
-    { name: 'Earthquakes', value: '3' },
-    { name: 'Floods', value: '4' },
-    { name: 'Landslides', value: '5' },
-    { name: 'Sea and Lake Ice', value: '6' },
-    { name: 'Severe Storms', value: '7' },
-    { name: 'Snow', value: '8' },
-    { name: 'Temperature Extremes', value: '9' },
-    { name: 'Volcanoes', value: '10' },
-    { name: 'Water Color', value: '11' },
-    { name: 'Wildfires', value: '12' },
-    { name: 'All', value: '13' },
+    { name: 'Venus', value: '1' },
+    { name: 'Earth', value: '2' },
+    { name: 'Saturn', value: '3' },
+    { name: 'Mercury', value: '4' },
+    { name: 'Mars', value: '5' },
+    { name: 'Jupiter', value: '6' },
+    { name: 'Neptune', value: '7' },
+    { name: 'Uranus', value: '8' },
+    { name: 'All', value: '9' },
   ];
 
-function NasaEvents(){
+function Planet(){
     const [array, setArray]=useState();
     const [tempArray, setTempArray]=useState();
     const [loaded, setLoaded]=useState(false);
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
 
-    function getButtonValue(value){
+    function getButtonValue(name){
         setTempArray((prevValue)=>{
             return array.filter((array)=>{
-                const {categories: [{title: event_category}]}=array;
-                return value==='All' ? true : event_category===value;
+                const {englishName: englishName, isPlanet: isPlanet}=array;
+                return name==='All' ? isPlanet===true : englishName===name;
             });
         });
         setLoaded(true);
       }
 
       useEffect(()=>{
-        fetch("https://beyond-earth-server.herokuapp.com/eonet_events")
+        fetch("https://api.le-systeme-solaire.net/rest/bodies/")
           .then((res) => res.json())
           .then((result) => {
             //console.log(result);
-            setArray(result.events);
-            setTempArray(result.events);
+            setLoaded(false);
+            setArray(result.bodies);
+            setTempArray(result.bodies);
             setIsLoaded(true);
+            setLoaded(true);
+            console.log(array);
         },
         // Note: it's important to handle errors here
         // instead of a catch() block so that we don't swallow
@@ -62,17 +63,20 @@ function NasaEvents(){
       if (error) {
         return <div>Error: {error.message}</div>;
       } else if (!isLoaded) {
-        return <div>Loading...</div>;
+        return <div style={{
+          position: 'absolute', left: '50%', top: '50%',
+          transform: 'translate(-50%, -50%)'
+      }}><CircularProgressWithLabel /></div>;
       } else 
       {
         return (
             <div>
-                <h3 style={{textAlign: "center", marginTop: "50px"}}>Nasa EONET Events</h3>
+                <h3 style={{textAlign: "center", marginTop: "50px"}}>Planets</h3>
                 <ButtonGroupCustom radios={radios} getButtonValue={getButtonValue}/>
                 { loaded ? 
                     tempArray.map((prop, index)=>{
                         return (
-                            <NasaCard key={index} prop={prop}/>
+                            <PlanetCard key={index} prop={prop}/>
                         );
                     }) : "Loading..."
                 }
@@ -81,4 +85,4 @@ function NasaEvents(){
     }
 }
 
-export default NasaEvents;
+export default Planet;
