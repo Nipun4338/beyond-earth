@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useState} from "react";
 import { useMediaQuery } from "@mui/material";
 import { ButtonGroup, ToggleButton } from "react-bootstrap";
 
@@ -6,15 +6,22 @@ import { ButtonGroup, ToggleButton } from "react-bootstrap";
 function ButtonGroupCustom(propsEarth) {
   const [radioName, setRadioName] = useState('All');
   const isMobile = useMediaQuery('(min-width:990px)');
+  const [isGet, setIsGet]=useState(true);
 
   function sendName(value){
     propsEarth.getButtonValue(value);
     setRadioName(value);
   }
 
-  useEffect(()=>{
-    sendName(radioName);
-  },[radioName]);
+  function firstFetch(){
+    if(isGet)
+    {
+        setIsGet(false);
+        sendName(radioName);
+    } 
+}
+
+firstFetch();
   
 
   return (
