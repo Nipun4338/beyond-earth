@@ -60,3 +60,13 @@ h1,h2,h3,h4,h5,h6,p{
   width: 100%;
   position: absolute;
 }
+
+
+.input-container .react-datepicker-wrapper {
+  margin: 12px 0;
+  width: 100%;
+}
+
+.input-container .react-datepicker-wrapper input {
+  padding: 4px 12px;
+}
