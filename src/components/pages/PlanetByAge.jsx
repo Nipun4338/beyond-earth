@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import { Button } from "react-bootstrap";
@@ -23,7 +23,7 @@ const planets=[
 ];
 
 const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: '#040607',
+    backgroundColor: 'black',
     ...theme.typography.body2,
     padding: theme.spacing(2),
     textAlign: 'center',
@@ -31,8 +31,8 @@ const Item = styled(Paper)(({ theme }) => ({
   }));
 
 function PlanetByAge(){
-    const [value, setValue] = React.useState(new Date());
-    const [dateArray, setDateArray]=React.useState(planets);
+    const [value, setValue] = useState(new Date());
+    const [dateArray, setDateArray] = useState(planets);
     const color = "white";
 
     function int_zero(e) {
