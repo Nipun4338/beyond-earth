@@ -14,7 +14,7 @@ function Header(){
         <header>
             <Navbar bg="dark" expand="md" variant="dark" fixed="top" collapseOnSelect>
             <Container fluid>
-            <Navbar.Brand onClick={()=>navigate('/')} eventKey="1" onMouseOver={countChange} style={{color: "white", cursor: "pointer"}}>
+            <Navbar.Brand onClick={()=>navigate('/')} onMouseOver={countChange} style={{color: "white", cursor: "pointer"}}>
                 {' '}{count ? (
                     <Typist cursor={{ show: false, hideWhenDone: true, hideWhenDoneDelay: 0 }} avgTypingDelay={50} onTypingDone={() => setCount(0)}>
                         Beyond Earth  
@@ -29,10 +29,10 @@ function Header(){
                 <Nav className="me-auto">
                 </Nav>
                 <Nav>
-                <Nav.Link onClick={()=>navigate('/')} eventKey="2">Nasa</Nav.Link>
+                <Nav.Link onClick={()=>navigate('/')}>Nasa</Nav.Link>
                 <NavDropdown title="Planet" id="collasible-nav-dropdown">
-                <NavDropdown.Item onClick={()=>navigate('/planet')} eventKey="3">Planet</NavDropdown.Item>
-                <NavDropdown.Item onClick={()=>navigate('/ageCalculator')} eventKey="4">Planet By Age</NavDropdown.Item>
+                <NavDropdown.Item onClick={()=>navigate('/planet')}>Planet</NavDropdown.Item>
+                <NavDropdown.Item onClick={()=>navigate('/ageCalculator')}>Planet By Age</NavDropdown.Item>
                 </NavDropdown>
                 <Nav.Link href="#rocket">Rocket</Nav.Link>
                 <Nav.Link href="#api">APIs</Nav.Link>
