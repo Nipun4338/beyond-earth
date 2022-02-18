@@ -58,7 +58,7 @@ function PlanetCard(props){
                 </Col>
             </Row>
             <Row>
-            <Col xs={2}>
+            <Col xs={3}>
             <Typography gutterBottom variant="p" component="div" style={{textAlign: "left", fontFamily: "Ariels", color: "white", fontWeight:"normal"}}>
             Category: 
             </Typography>
@@ -71,7 +71,7 @@ function PlanetCard(props){
             </Row>
 
             <Row>
-            <Col xs={2}>
+            <Col xs={3}>
             <Typography gutterBottom variant="p" component="div" style={{textAlign: "left", fontFamily: "Ariels", color: "white", fontWeight:"normal"}}>
             Discovered By: 
             </Typography>
@@ -84,7 +84,7 @@ function PlanetCard(props){
             </Row>
 
             <Row>
-            <Col xs={2}>
+            <Col xs={3}>
             <Typography gutterBottom variant="p" component="div" style={{textAlign: "left", fontFamily: "Ariels", color: "white", fontWeight:"normal"}}>
             Discovery Date:
             </Typography>
@@ -111,7 +111,7 @@ function PlanetCard(props){
         <Collapse in={expanded} timeout="auto" unmountOnExit>
             <CardContent>
             <Row>
-            <Col xs={2}>
+            <Col xs={3}>
             <Typography gutterBottom variant="p" component="div" style={{textAlign: "left", fontFamily: "Ariels", color: "white", fontWeight:"normal"}}>
             Escape:
             </Typography>
@@ -124,7 +124,7 @@ function PlanetCard(props){
             </Row>
 
             <Row>
-            <Col xs={2}>
+            <Col xs={3}>
             <Typography gutterBottom variant="p" component="div" style={{textAlign: "left", fontFamily: "Ariels", color: "white", fontWeight:"normal"}}>
             Mean Radius:
             </Typography>
@@ -137,7 +137,7 @@ function PlanetCard(props){
             </Row>
 
             <Row>
-            <Col xs={2}>
+            <Col xs={3}>
             <Typography gutterBottom variant="p" component="div" style={{textAlign: "left", fontFamily: "Ariels", color: "white", fontWeight:"normal"}}>
             Average Temperature:
             </Typography>
@@ -150,7 +150,7 @@ function PlanetCard(props){
             </Row>
 
             <Row>
-            <Col xs={2}>
+            <Col xs={3}>
             <Typography gutterBottom variant="p" component="div" style={{textAlign: "left", fontFamily: "Ariels", color: "white", fontWeight:"normal"}}>
             Mass:
             </Typography>
@@ -163,7 +163,7 @@ function PlanetCard(props){
             </Row>
 
             <Row>
-            <Col xs={2}>
+            <Col xs={3}>
             <Typography gutterBottom variant="p" component="div" style={{textAlign: "left", fontFamily: "Ariels", color: "white", fontWeight:"normal"}}>
             Volume:
             </Typography>
