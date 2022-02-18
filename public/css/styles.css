@@ -53,26 +53,10 @@ h1,h2,h3,h4,h5,h6,p{
     height: 0;
   }
   
-  .video-responsive iframe {
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-  }
-  
-  .input-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .input-container .react-datepicker-wrapper {
-    margin: 12px 0;
-    width: 100%;
-  }
-  
-  .input-container .react-datepicker-wrapper input {
-    padding: 4px 12px;
-  }
+.video-responsive iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
