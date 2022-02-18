@@ -27,7 +27,7 @@ firstFetch();
   return (
       <ButtonGroup size='sm' style={{display: 'flex', justifyContent: 'flex-end'}} vertical={isMobile ? false : true}>
       {
-      propsEarth.radios.map((property, index)=>{
+      propsEarth.radios.map((property, index)=>
         {
           return (
             <ToggleButton
@@ -48,7 +48,7 @@ firstFetch();
           </ToggleButton>
           );
         }
-      })}
+      )}
       </ButtonGroup>
   );
 }
