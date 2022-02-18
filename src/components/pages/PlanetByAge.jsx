@@ -8,18 +8,17 @@ import { experimentalStyled as styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import dateFormat from "dateformat";
-import { Image } from "react-bootstrap";
 
 const planets=[
-    { name: 'Mercury', value: 'Mercurian', days: 58.6, years: 87.97, total_days: null, age: null, next_bday: null, image: "https://www.exploratorium.edu/ronh/age/images/mercury.gif"},
-    { name: 'Venus', value: 'Venusian', days: 243, years: 224.7, total_days: null, age: null, next_bday: null, image: "https://www.exploratorium.edu/ronh/age/images/venus.gif"},
-    { name: 'Earth', value: 'Earth', days: 1, years: 365.26, total_days: null, age: null, next_bday: null, image: "https://www.exploratorium.edu/ronh/age/images/earth.gif"},
-    { name: 'Mars', value: 'Martian', days: 1.03, years: 686.98, total_days: null, age: null, next_bday: null, image: "https://www.exploratorium.edu/ronh/age/images/mars.gif"},
-    { name: 'Jupiter', value: 'Jovian', days: 0.41, years: 4332.71, total_days: null, age: null, next_bday: null, image: "https://www.exploratorium.edu/ronh/age/images/jupiter.gif"},
-    { name: 'Saturn', value: 'Saturnian', days: 0.45, years: 10759.5, total_days: null, age: null, next_bday: null, image: "https://www.exploratorium.edu/ronh/age/images/saturn.gif"},
-    { name: 'Uranus', value: 'Uranian', days: 0.72, years: 30685, total_days: null, age: null, next_bday: null, image: "https://www.exploratorium.edu/ronh/age/images/uranus.gif"},
-    { name: 'Neptune', value: 'Neptunian', days: 0.67, years: 60190, total_days: null, age: null, next_bday: null, image: "https://www.exploratorium.edu/ronh/age/images/neptune.gif"},
-    { name: 'Pluto', value: 'Plutonian', days: 6.39, years: 90800, total_days: null, age: null, next_bday: null, image: "https://www.exploratorium.edu/ronh/age/images/pluto.gif"}
+    { name: 'Mercury', value: 'Mercurian', days: 58.6, years: 87.97, total_days: null, age: null, next_bday: null},
+    { name: 'Venus', value: 'Venusian', days: 243, years: 224.7, total_days: null, age: null, next_bday: null},
+    { name: 'Earth', value: 'Earth', days: 1, years: 365.26, total_days: null, age: null, next_bday: null},
+    { name: 'Mars', value: 'Martian', days: 1.03, years: 686.98, total_days: null, age: null, next_bday: null},
+    { name: 'Jupiter', value: 'Jovian', days: 0.41, years: 4332.71, total_days: null, age: null, next_bday: null},
+    { name: 'Saturn', value: 'Saturnian', days: 0.45, years: 10759.5, total_days: null, age: null, next_bday: null},
+    { name: 'Uranus', value: 'Uranian', days: 0.72, years: 30685, total_days: null, age: null, next_bday: null},
+    { name: 'Neptune', value: 'Neptunian', days: 0.67, years: 60190, total_days: null, age: null, next_bday: null},
+    { name: 'Pluto', value: 'Plutonian', days: 6.39, years: 90800, total_days: null, age: null, next_bday: null}
 ];
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -106,7 +105,6 @@ function PlanetByAge(){
                 <Grid item xs={4} sm={4} md={4} key={index}>
                     <Item>
                         <h3>{prop.name}</h3>
-                        <Image src={prop.image}/>
                         <p style={{fontWeight: 'normal'}}>Your age is</p>
                         <p style={{fontWeight: 'normal'}}>{prop.total_days} Mercurian Days</p>
                         <p style={{fontWeight: 'normal'}}>{prop.age} Mercurian Years</p>
