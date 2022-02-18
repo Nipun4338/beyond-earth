@@ -23,7 +23,7 @@ const planets=[
 ];
 
 const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#040607' : '#040607',
+    backgroundColor: '#040607',
     ...theme.typography.body2,
     padding: theme.spacing(2),
     textAlign: 'center',
