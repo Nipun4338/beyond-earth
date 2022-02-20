@@ -34,7 +34,9 @@ function Header(){
                 <NavDropdown.Item onClick={()=>navigate('/planet')} eventKey="3">Planet</NavDropdown.Item>
                 <NavDropdown.Item onClick={()=>navigate('/ageCalculator')} eventKey="4">Planet By Age</NavDropdown.Item>
                 </NavDropdown>
-                <Nav.Link href="#rocket">Rocket</Nav.Link>
+                <NavDropdown title="Rocket" id="collasible-nav-dropdown">
+                <NavDropdown.Item onClick={()=>navigate('/upcoming')} eventKey="5">Upcoming Launch</NavDropdown.Item>
+                </NavDropdown>
                 <Nav.Link href="#api">APIs</Nav.Link>
                 </Nav>
             </Navbar.Collapse>

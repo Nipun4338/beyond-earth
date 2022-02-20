@@ -1,19 +1,19 @@
-import React, { useEffect, useState } from "react";
-import Nasa from "./pages/Nasa";
-import CircularProgressWithLabel from "./elements/Loading";
-import SolarSystemCount from "./pages/SolarSystemCount";
+import React, {useState, useEffect} from "react";
+import CircularProgressWithLabel from "../../elements/Loading";
+import UpcomingEvent from "./UpcomingEvent";
 
-function Body(){
+
+function UpcomingLaunch(){
     const [error, setError] = useState(null);
     const [data, setData]=useState();
     const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(()=>{
-    fetch("https://beyond-earth-server.herokuapp.com/apod")
+    fetch("https://spacelaunchnow.me/api/3.5.0/launch/upcoming/?format=json&limit=100")
       .then((res) => res.json())
       .then((result) => {
         setIsLoaded(false);
-        setData(result);
+        setData(result.results);
         setIsLoaded(true);
     },
     // Note: it's important to handle errors here
@@ -37,24 +37,14 @@ function Body(){
       position: 'absolute', left: '50%', top: '50%',
       transform: 'translate(-50%, -50%)'
   }}><CircularProgressWithLabel /></div>;
-  } else 
+  } else
   { 
-      const {media_type, title, url, explanation}=data;
     return(
-        <div>
-            {isLoaded ? 
-            <div>
-            <Nasa url={url} title={title} media_type={media_type} explanation={explanation}/> 
-            <SolarSystemCount />
-            </div>
-            : 
-            <CircularProgressWithLabel style={{
-        position: 'absolute', left: '50%', top: '50%',
-        transform: 'translate(-50%, -50%)'
-    }}/>}
+        <div style={{marginTop: "70px"}}>
+            <UpcomingEvent tweets={data}/>
         </div>
     );
   }
 }
 
-export default Body;
+export default UpcomingLaunch;
