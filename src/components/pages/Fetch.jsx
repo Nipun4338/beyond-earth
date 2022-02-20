@@ -13,7 +13,9 @@ function Fetch(){
     const [isLoaded1, setIsLoaded1] = useState(false);
     const [isLoaded2, setIsLoaded2] = useState(false);
     const [isLoaded3, setIsLoaded3] = useState(false);
+    const [isLoaded4, setIsLoaded4] = useState(false);
     const [planet, setPlanet]=useState();
+    const [rocket, setRocket]=useState();
 
 
     useEffect(()=>{
@@ -84,11 +86,33 @@ function Fetch(){
         setIsLoaded3(true);
       });
     }, []);
+
+    useEffect(()=>{
+      fetch("https://spacelaunchnow.me/api/3.5.0/launch/upcoming/?format=json&limit=100")
+        .then((res) => res.json())
+        .then((result) => {
+          setIsLoaded4(false);
+          setRocket(result.results);
+          setIsLoaded4(true);
+      },
+      // Note: it's important to handle errors here
+      // instead of a catch() block so that we don't swallow
+      // exceptions from actual bugs in components.
+      (error) => {
+        //setData(data);
+        setIsLoaded4(true);
+        setError(error);
+      }
+    ).catch(error => {
+      //setData(data);
+      setIsLoaded4(true);
+    });
+  }, []);
     
 
     if (error) {
         return <div>Error: {error.message}</div>;
-      } else if (!isLoaded1 || !isLoaded2 || !isLoaded3) {
+      } else if (!isLoaded1 || !isLoaded2 || !isLoaded3 || !isLoaded4) {
         return <div style={{
           position: 'absolute', left: '50%', top: '50%',
           transform: 'translate(-50%, -50%)'
@@ -100,7 +124,7 @@ function Fetch(){
                 <Route path="/" element={<Body apod={apod} solar={solar}/>} />
                 <Route path="/planet" element={<Planet planet={planet}/>} />
                 <Route path="/ageCalculator" element={<PlanetByAge />} />
-                <Route path="/upcoming" element={<UpcomingLaunch />} />
+                <Route path="/upcoming" element={<UpcomingLaunch rocket={rocket}/>} />
             </Routes>
         );
       }

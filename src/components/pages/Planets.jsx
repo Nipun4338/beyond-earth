@@ -1,8 +1,7 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import ButtonGroupCustom from '../elements/ButtonGroupCustom';
 import PlanetCard from "./PlanetCard";
-import CircularProgressWithLabel from "../elements/Loading";
 
 
 const radios = [
@@ -17,14 +16,14 @@ const radios = [
     { name: 'All', value: '9' },
   ];
 
-function Planet(){
-    const [array, setArray]=useState();
-    const [tempArray, setTempArray]=useState();
+function Planet(props){
+    const [array, setArray]=useState(props.planet);
+    const [tempArray, setTempArray]=useState(props.planet);
     const [loaded, setLoaded]=useState(false);
-    const [error, setError] = useState(null);
-    const [isLoaded, setIsLoaded] = useState(false);
 
     function getButtonValue(name){
+      setArray(props.planet);
+      setLoaded(false);
         setTempArray((prevValue)=>{
             return array.filter((array)=>{
                 const {englishName, isPlanet}=array;
@@ -33,41 +32,7 @@ function Planet(){
         });
         setLoaded(true);
       }
-
-      useEffect(()=>{
-        fetch("https://api.le-systeme-solaire.net/rest/bodies/")
-          .then((res) => res.json())
-          .then((result) => {
-            //console.log(result);
-            setLoaded(false);
-            setArray(result.bodies);
-            setTempArray(result.bodies);
-            setIsLoaded(true);
-            setLoaded(true);
-        },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
-        (error) => {
-          //setData(data);
-          setIsLoaded(true);
-          setError(error);
-        }
-      ).catch(error => {
-        //setData(data);
-        setIsLoaded(true);
-      });
-    }, []);
     
-      if (error) {
-        return <div>Error: {error.message}</div>;
-      } else if (!isLoaded) {
-        return <div style={{
-          position: 'absolute', left: '50%', top: '50%',
-          transform: 'translate(-50%, -50%)'
-      }}><CircularProgressWithLabel /></div>;
-      } else 
-      {
         return (
             <div>
                 <h3 style={{textAlign: "center", marginTop: "50px"}}>Planets</h3>
@@ -81,7 +46,6 @@ function Planet(){
                 }
             </div>
         );
-    }
 }
 
 export default Planet;
