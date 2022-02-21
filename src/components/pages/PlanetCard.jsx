@@ -64,7 +64,7 @@ function PlanetCard(props){
             </Typography>
             </Col>
             <Col xs={8}>
-            <Typography gutterBottom variant="p" component="div" style={{textAlign: "left", fontFamily: "Montserrat"}}>
+            <Typography gutterBottom variant="p" component="div" style={{textAlign: "left", fontFamily: "Montserrat", fontWeight:"normal"}}>
                 {bodyType}
             </Typography>
             </Col>
@@ -77,7 +77,7 @@ function PlanetCard(props){
             </Typography>
             </Col>
             <Col xs={8}>
-            <Typography gutterBottom variant="p" component="div" style={{textAlign: "left", fontFamily: "Montserrat"}}>
+            <Typography gutterBottom variant="p" component="div" style={{textAlign: "left", fontFamily: "Montserrat", fontWeight:"normal"}}>
                 {discoveredBy}
             </Typography>
             </Col>
@@ -90,7 +90,7 @@ function PlanetCard(props){
             </Typography>
             </Col>
             <Col xs={8}>
-            <Typography gutterBottom variant="p" component="div" style={{textAlign: "left", fontFamily: "Montserrat"}}>
+            <Typography gutterBottom variant="p" component="div" style={{textAlign: "left", fontFamily: "Montserrat", fontWeight:"normal"}}>
                 {discoveryDate}
             </Typography>
             </Col>
@@ -117,7 +117,7 @@ function PlanetCard(props){
             </Typography>
             </Col>
             <Col xs={8}>
-            <Typography gutterBottom variant="p" component="div" style={{textAlign: "left", fontFamily: "Montserrat"}}>
+            <Typography gutterBottom variant="p" component="div" style={{textAlign: "left", fontFamily: "Montserrat", fontWeight:"normal"}}>
                 {escape} m/s-1
             </Typography>
             </Col>
@@ -130,7 +130,7 @@ function PlanetCard(props){
             </Typography>
             </Col>
             <Col xs={8}>
-            <Typography gutterBottom variant="p" component="div" style={{textAlign: "left", fontFamily: "Montserrat"}}>
+            <Typography gutterBottom variant="p" component="div" style={{textAlign: "left", fontFamily: "Montserrat", fontWeight:"normal"}}>
                 {meanRadius} Km
             </Typography>
             </Col>
@@ -143,7 +143,7 @@ function PlanetCard(props){
             </Typography>
             </Col>
             <Col xs={8}>
-            <Typography gutterBottom variant="p" component="div" style={{textAlign: "left", fontFamily: "Montserrat"}}>
+            <Typography gutterBottom variant="p" component="div" style={{textAlign: "left", fontFamily: "Montserrat", fontWeight:"normal"}}>
                 {avgTemp} K
             </Typography>
             </Col>
@@ -156,7 +156,7 @@ function PlanetCard(props){
             </Typography>
             </Col>
             <Col xs={8}>
-            <Typography gutterBottom variant="p" component="div" style={{textAlign: "left", fontFamily: "Montserrat"}}>
+            <Typography gutterBottom variant="p" component="div" style={{textAlign: "left", fontFamily: "Montserrat", fontWeight:"normal"}}>
                 {massValue}x10^{massExponent} Kg
             </Typography>
             </Col>
@@ -169,7 +169,7 @@ function PlanetCard(props){
             </Typography>
             </Col>
             <Col xs={8}>
-            <Typography gutterBottom variant="p" component="div" style={{textAlign: "left", fontFamily: "Montserrat"}}>
+            <Typography gutterBottom variant="p" component="div" style={{textAlign: "left", fontFamily: "Montserrat", fontWeight:"normal"}}>
                 {volValue}x10^{volExponent} Km3
             </Typography>
             </Col>

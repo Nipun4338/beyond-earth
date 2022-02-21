@@ -36,8 +36,9 @@ function Header(){
                 </NavDropdown>
                 <NavDropdown title="Rocket" id="collasible-nav-dropdown">
                 <NavDropdown.Item onClick={()=>navigate('/upcoming')} eventKey="5">Upcoming Launch</NavDropdown.Item>
+                <NavDropdown.Item onClick={()=>navigate('/past')} eventKey="6">Past</NavDropdown.Item>
                 </NavDropdown>
-                <Nav.Link href="#api">APIs</Nav.Link>
+                <Nav.Link onClick={()=>navigate('/apis')} eventKey="7">APIs</Nav.Link>
                 </Nav>
             </Navbar.Collapse>
             </Container>

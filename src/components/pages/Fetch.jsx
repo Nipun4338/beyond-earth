@@ -5,6 +5,8 @@ import PlanetByAge from "./PlanetByAge";
 import { Routes, Route } from "react-router-dom";
 import UpcomingLaunch from './rocket/UpcomingLaunch';
 import CircularProgressWithLabel from "../elements/Loading";
+import PastLaunch from "./rocket/PastLaunch";
+import Apis from "./Apis";
 
 function Fetch(){
     const [error, setError] = useState(null);
@@ -14,8 +16,10 @@ function Fetch(){
     const [isLoaded2, setIsLoaded2] = useState(false);
     const [isLoaded3, setIsLoaded3] = useState(false);
     const [isLoaded4, setIsLoaded4] = useState(false);
+    const [isLoaded5, setIsLoaded5] = useState(false);
     const [planet, setPlanet]=useState();
     const [rocket, setRocket]=useState();
+    const [pastRocket, setPastRocket]=useState();
 
 
     useEffect(()=>{
@@ -108,11 +112,33 @@ function Fetch(){
       setIsLoaded4(true);
     });
   }, []);
+
+  useEffect(()=>{
+    fetch("https://spacelaunchnow.me/api/3.5.0/launch/previous/?format=json&limit=1000")
+      .then((res) => res.json())
+      .then((result) => {
+        setIsLoaded5(false);
+        setPastRocket(result.results);
+        setIsLoaded5(true);
+    },
+    // Note: it's important to handle errors here
+    // instead of a catch() block so that we don't swallow
+    // exceptions from actual bugs in components.
+    (error) => {
+      //setData(data);
+      setIsLoaded5(true);
+      setError(error);
+    }
+  ).catch(error => {
+    //setData(data);
+    setIsLoaded5(true);
+  });
+}, []);
     
 
     if (error) {
         return <div>Error: {error.message}</div>;
-      } else if (!isLoaded1 || !isLoaded2 || !isLoaded3 || !isLoaded4) {
+      } else if (!isLoaded1 || !isLoaded2 || !isLoaded3 || !isLoaded4 || !isLoaded5) {
         return <div style={{
           position: 'absolute', left: '50%', top: '50%',
           transform: 'translate(-50%, -50%)'
@@ -125,6 +151,8 @@ function Fetch(){
                 <Route path="/planet" element={<Planet planet={planet}/>} />
                 <Route path="/ageCalculator" element={<PlanetByAge />} />
                 <Route path="/upcoming" element={<UpcomingLaunch rocket={rocket}/>} />
+                <Route path="/past" element={<PastLaunch rocket={pastRocket}/>} />
+                <Route path="/apis" element={<Apis />} />
             </Routes>
         );
       }
