@@ -60,7 +60,7 @@ function UpcomingCard(values){
             </Typography>
 
             <Row>
-            <Col xs={2}>
+            <Col xs={3}>
             <Typography gutterBottom variant="p" component="div" style={{textAlign: "left", fontFamily: "Ariels", color: "white", fontWeight:"normal"}}>
             Status:
             </Typography>
