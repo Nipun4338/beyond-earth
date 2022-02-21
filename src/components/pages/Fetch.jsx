@@ -92,7 +92,7 @@ function Fetch(){
     }, []);
 
     useEffect(()=>{
-      fetch("https://spacelaunchnow.me/api/3.5.0/launch/upcoming/?format=json&limit=100")
+      fetch("https://spacelaunchnow.me/api/3.5.0/launch/upcoming/?format=json&limit=100&mode=detailed")
         .then((res) => res.json())
         .then((result) => {
           setIsLoaded4(false);
@@ -114,7 +114,7 @@ function Fetch(){
   }, []);
 
   useEffect(()=>{
-    fetch("https://spacelaunchnow.me/api/3.5.0/launch/previous/?format=json&limit=1000")
+    fetch("https://spacelaunchnow.me/api/3.5.0/launch/previous/?format=json&limit=1000&mode=detailed")
       .then((res) => res.json())
       .then((result) => {
         setIsLoaded5(false);

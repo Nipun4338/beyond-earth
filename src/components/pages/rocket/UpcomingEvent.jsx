@@ -5,7 +5,7 @@ import UpcomingCard from './UpcomingCard';
 
 
 const UpcomingEvent = ({ tweets }) => {
-    const perPage = 4;
+    const perPage = 5;
     const [lastPosition, setLastPosition] = useState(perPage);
     const [allTweets, setAllTweets] = useState(tweets.slice(0, perPage));
     const [hasMore, setHasmore] = useState(true);
@@ -41,7 +41,10 @@ const UpcomingEvent = ({ tweets }) => {
         <div className="flex flex-col">
           {allTweets.map((value, index) => {return(
             <div key={index} className="py-10 px-5" style={{margin: "20px"}}>
-              <UpcomingCard values={value}/>
+              {
+                value.status.id!==3 ? 
+                <UpcomingCard values={value}/> : null
+              }
             </div>
           );}
           )}

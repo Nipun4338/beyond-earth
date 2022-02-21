@@ -45,7 +45,7 @@ function NextLaunch(props){
     return (
         props.tweets.map((value)=>{
             return (
-                value.status.id===1 & !ok ? 
+                value.status.id!==3 & !ok ? 
                 callMe(value)
                  : null
             );

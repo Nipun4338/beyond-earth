@@ -9,7 +9,17 @@ import IconButton from '@mui/material/IconButton';
 import { styled } from '@mui/material/styles';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { Row, Col } from "react-bootstrap";
+import YoutubeEmbed from "../../elements/YoutubeEmbed";
 
+
+function getId(url) {
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+    const match = url.match(regExp);
+
+    return (match && match[2].length === 11)
+      ? '//www.youtube.com/embed/'+match[2]
+      : null;
+}
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -48,6 +58,30 @@ function UpcomingCard(values){
             <Typography gutterBottom variant="h5" component="div" style={{textAlign: "center", fontFamily: "Montserrat"}}>
             {values.values.mission ? values.values.mission.name : values.values.name}
             </Typography>
+
+            <Row>
+            <Col xs={2}>
+            <Typography gutterBottom variant="p" component="div" style={{textAlign: "left", fontFamily: "Ariels", color: "white", fontWeight:"normal"}}>
+            Status:
+            </Typography>
+            </Col>
+            <Col xs={8}>
+            {values.values.status.id===3 ? 
+            <Typography gutterBottom variant="p" component="div" style={{textAlign: "left", fontWeight:"bold", color:'green'}}>
+                {values.values.status.name}
+            </Typography>
+            : values.values.status.id===1 ?
+            <Typography gutterBottom variant="p" component="div" style={{textAlign: "left", fontWeight:"bold", color:'blue'}}>
+                {values.values.status.name}
+            </Typography>
+            : 
+            <Typography gutterBottom variant="p" component="div" style={{textAlign: "left", fontWeight:"bold", color:'red'}}>
+                {values.values.status.name}
+            </Typography>
+            }
+            </Col>
+            </Row>
+
             </CardContent>
             <Grid container direction="row" alignItems="center">
             <ExpandMore
@@ -181,6 +215,18 @@ function UpcomingCard(values){
                 </Typography>
                 </Col>
                 </Row>
+                </div> : null
+            }
+            {
+                values.values.vidURLs ? 
+                <div>
+                {values.values.vidURLs.map((link)=>{
+                    return(
+                        <div style={{marginTop:'20px'}}>
+                        <YoutubeEmbed embedUrl={getId(link.url)}/>
+                        </div>
+                    );
+                })}
                 </div> : null
             }
             </div>
