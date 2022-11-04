@@ -108,8 +108,8 @@ function PlanetByAge(){
                         <h3>{prop.name}</h3>
                         <Image src={prop.image}/>
                         <p style={{fontWeight: 'normal'}}>Your age is</p>
-                        <p style={{fontWeight: 'normal'}}>{prop.total_days} Mercurian Days</p>
-                        <p style={{fontWeight: 'normal'}}>{prop.age} Mercurian Years</p>
+                        <p style={{fontWeight: 'normal'}}>{prop.total_days} {prop.value} Days</p>
+                        <p style={{fontWeight: 'normal'}}>{prop.age} {prop.value} Years</p>
                         <p style={{fontWeight: 'normal'}}>Next Birthday: {prop.next_bday}</p>
                     </Item>
                 </Grid>
