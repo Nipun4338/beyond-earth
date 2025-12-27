@@ -8,9 +8,10 @@ import SpaceshipLoading from "../elements/SpaceshipLoading";
 import PastLaunch from "./rocket/PastLaunch";
 import Apis from "./Apis";
 
+// Fallback to localhost if env var is not set (e.g. before restart)
+const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:4000";
+
 function Fetch() {
-  // Fallback to localhost if env var is not set (e.g. before restart)
-  const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:4000";
   const [error, setError] = useState(null);
   const [apod, setApod] = useState();
   const [solar, setSolar] = useState();

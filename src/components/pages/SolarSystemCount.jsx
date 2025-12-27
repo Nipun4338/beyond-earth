@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import SolarSystemCountCard from "./SolarSystemCountCard";
 import SectionLoader from "../elements/SectionLoader";
 

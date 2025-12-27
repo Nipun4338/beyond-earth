@@ -128,6 +128,7 @@ function SpaceFacts() {
       const interval = setInterval(nextFact, 8000);
       return () => clearInterval(interval);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [facts.length]);
 
   if (loading) {

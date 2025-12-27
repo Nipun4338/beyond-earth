@@ -17,6 +17,7 @@ function ButtonGroupCustom(propsEarth) {
       setIsGet(false);
       sendName(radioName);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isGet, radioName]);
 
   return (
