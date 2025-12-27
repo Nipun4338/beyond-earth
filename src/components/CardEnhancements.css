@@ -1,0 +1,88 @@
+/* Subtle Card Enhancements */
+
+/* Universal Card Enhancements */
+.MuiCard-root,
+.card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease !important;
+  border: 1px solid rgba(0, 212, 255, 0.15) !important;
+}
+
+.MuiCard-root:hover,
+.card:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 8px 25px rgba(0, 212, 255, 0.2) !important;
+  border-color: rgba(0, 212, 255, 0.3) !important;
+}
+
+/* Subtle glow on hover */
+.MuiCard-root::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 212, 255, 0.03) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.MuiCard-root:hover::before {
+  opacity: 1;
+}
+
+/* Enhanced Typography - subtle glow */
+.MuiTypography-h5 {
+  transition: color 0.3s ease;
+}
+
+.MuiCard-root:hover .MuiTypography-h5 {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* Image Enhancements - subtle zoom */
+.MuiCardMedia-root {
+  transition: transform 0.4s ease;
+}
+
+.MuiCard-root:hover .MuiCardMedia-root {
+  transform: scale(1.03);
+}
+
+/* Button Enhancements - gentle scale */
+.MuiIconButton-root {
+  transition: all 0.2s ease !important;
+}
+
+.MuiIconButton-root:hover {
+  transform: scale(1.1) !important;
+  background-color: rgba(0, 212, 255, 0.08) !important;
+}
+
+/* Card Content smooth transition */
+.MuiCardContent-root {
+  transition: background-color 0.3s ease;
+}
+
+/* Number/Count subtle highlight */
+.MuiTypography-body2 {
+  transition: color 0.3s ease;
+}
+
+.MuiCard-root:hover .MuiTypography-body2 {
+  color: rgba(0, 212, 255, 0.9) !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .MuiCard-root:hover {
+    transform: translateY(-3px) !important;
+  }
+}

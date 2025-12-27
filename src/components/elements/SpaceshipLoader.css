@@ -1,0 +1,210 @@
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes flame-flicker {
+  0%,
+  100% {
+    transform: scaleY(1) scaleX(0.8);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scaleY(1.3) scaleX(1);
+    opacity: 1;
+  }
+}
+
+.spaceship-loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  overflow: hidden;
+  cursor: crosshair;
+}
+
+/* Animated stars */
+.stars,
+.stars2,
+.stars3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.stars {
+  background: transparent
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="2" height="2"><circle cx="1" cy="1" r="1" fill="white"/></svg>')
+    repeat;
+  background-size: 200px 200px;
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+.stars2 {
+  background: transparent
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="3" height="3"><circle cx="1.5" cy="1.5" r="1" fill="white"/></svg>')
+    repeat;
+  background-size: 300px 300px;
+  animation: twinkle 5s ease-in-out infinite;
+  opacity: 0.7;
+}
+
+.stars3 {
+  background: transparent
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="4" height="4"><circle cx="2" cy="2" r="1.5" fill="white"/></svg>')
+    repeat;
+  background-size: 400px 400px;
+  animation: twinkle 7s ease-in-out infinite;
+  opacity: 0.5;
+}
+
+/* Spaceship */
+.spaceship {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  transition: left 0.1s ease-out, top 0.1s ease-out;
+  filter: drop-shadow(0 0 10px rgba(100, 200, 255, 0.5));
+  z-index: 10;
+}
+
+.spaceship-body {
+  position: relative;
+  width: 60px;
+  height: 40px;
+  background: linear-gradient(135deg, #4a90e2, #2c5aa0);
+  border-radius: 50% 50% 20% 20%;
+  transform: rotate(-45deg);
+}
+
+.cockpit {
+  position: absolute;
+  top: 8px;
+  left: 15px;
+  width: 20px;
+  height: 15px;
+  background: radial-gradient(
+    circle,
+    rgba(100, 200, 255, 0.8),
+    rgba(50, 150, 255, 0.3)
+  );
+  border-radius: 50%;
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.wing {
+  position: absolute;
+  width: 25px;
+  height: 15px;
+  background: linear-gradient(90deg, #3a7bc8, #2c5aa0);
+  border-radius: 0 50% 50% 0;
+}
+
+.wing-left {
+  top: -5px;
+  left: -10px;
+  transform: rotate(-20deg);
+}
+
+.wing-right {
+  bottom: -5px;
+  left: -10px;
+  transform: rotate(20deg);
+}
+
+.engine {
+  position: absolute;
+  bottom: -5px;
+  right: -5px;
+  width: 15px;
+  height: 15px;
+  background: radial-gradient(circle, #ff6b35, #ff4500);
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(255, 107, 53, 0.8);
+}
+
+.flame {
+  position: absolute;
+  bottom: -8px;
+  right: -15px;
+  width: 20px;
+  height: 30px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 107, 53, 0.9) 0%,
+    rgba(255, 165, 0, 0.7) 50%,
+    rgba(255, 200, 0, 0.3) 100%
+  );
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  filter: blur(2px);
+  animation: flame-flicker 0.1s ease-in-out infinite;
+  transform-origin: top center;
+}
+
+/* Loading text */
+.loading-text {
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  z-index: 5;
+}
+
+.loading-text h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0;
+  text-shadow: 0 0 20px rgba(100, 200, 255, 0.8);
+  animation: float 3s ease-in-out infinite;
+}
+
+.loading-text p {
+  font-size: 1.2rem;
+  margin-top: 10px;
+  color: #aaa;
+  animation: twinkle 2s ease-in-out infinite;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .spaceship {
+    width: 60px;
+    height: 60px;
+  }
+
+  .spaceship-body {
+    width: 45px;
+    height: 30px;
+  }
+
+  .loading-text h2 {
+    font-size: 1.8rem;
+  }
+
+  .loading-text p {
+    font-size: 1rem;
+  }
+}

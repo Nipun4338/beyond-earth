@@ -1,29 +1,26 @@
 import React, { useState, useEffect } from "react";
 import SolarSystemCountCard from "./SolarSystemCountCard";
+import SectionLoader from "../elements/SectionLoader";
 
+function SolarSystemCount(props) {
+  const tempArray = props.props;
+  // Ensure tempArray is an array before mapping
+  const isValid = Array.isArray(tempArray) && tempArray.length > 0;
 
-function SolarSystemCount(props){
-    const [tempArray, setTempArray]=useState();
-    const [loaded, setLoaded]=useState();
-
-    useEffect(()=>{
-      setLoaded(false);
-      setTempArray(props.props);
-      setLoaded(true);
-    }, [props.props])
-    
-    return (
-        <div>
-            <h3 style={{textAlign: "center", marginTop: "50px"}}>Solar System Info</h3>
-            { loaded ? 
-                tempArray.map((prop, index)=>{
-                    return (
-                        <SolarSystemCountCard key={index} prop={prop}/>
-                    );
-                }) : "Loading..."
-            }
-        </div>
-    );
+  return (
+    <div>
+      <h3 style={{ textAlign: "center", marginTop: "50px", color: "white" }}>
+        Solar System Info
+      </h3>
+      {isValid ? (
+        tempArray.map((prop, index) => {
+          return <SolarSystemCountCard key={index} prop={prop} />;
+        })
+      ) : (
+        <SectionLoader type="planets" />
+      )}
+    </div>
+  );
 }
 
 export default SolarSystemCount;
