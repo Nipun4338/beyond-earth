@@ -119,7 +119,7 @@ This builds the app for production to the `build` folder. It correctly bundles R
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
-Feel free to check the [issues page](https://github.com/yourusername/beyond-earth/issues).
+Feel free to check the [issues page](https://github.com/Nipun4338/beyond-earth/issues).
 
 ---
 
